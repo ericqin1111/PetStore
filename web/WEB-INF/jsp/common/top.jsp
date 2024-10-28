@@ -28,7 +28,7 @@
             <a href="#"><img align="middle" name="img_cart" src="images/cart.gif"/></a>
 
             <img align="middle" src="images/separator.gif"/>
-            <a href="#">Sign In</a>
+            <a href="newOrderForm" class="Button">Sign In</a>
             <a href="#">Sign Out</a>
             <img align="middle" src="images/separator.gif"/>
             <a href="">My Account</a>

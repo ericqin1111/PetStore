@@ -30,7 +30,7 @@
                                       pattern="$#,##0.00" />
                 </td>
                 <td>
-                    <a href="" class="Button">Add to Cart</a>
+                    <a href="addItemToCart?workingItemId=${item.itemId}" class="Button">Add to Cart</a>
                 </td>
             </tr>
         </c:forEach>

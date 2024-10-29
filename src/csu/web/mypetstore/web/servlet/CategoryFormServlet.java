@@ -25,6 +25,8 @@ public class CategoryFormServlet extends HttpServlet
         HttpSession session=req.getSession();
         session.setAttribute("category",category);
         session.setAttribute("productList",productList);
+        System.out.println("categoryformservlet1");
         req.getRequestDispatcher(CATEGORY_FORM).forward(req,resp);
+        System.out.println("categoryformservlet2");
     }
 }

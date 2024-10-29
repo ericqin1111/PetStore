@@ -4,18 +4,22 @@ import java.sql.*;
 
 public class DBUtil {
     private static final String Driver = "com.mysql.cj.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/myfirstpetstore";
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/mypetstore";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "12345";
+    private static final String PASSWORD = "";
 
     public static Connection getConnection() {
         Connection connection = null;
         try {
             Class.forName(Driver);
+            System.out.println("dbutil:Connecting to database...");
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            System.out.println("dbutil:Connected!");
         } catch (ClassNotFoundException e) {
+            System.out.println("dbutil:Can't find JDBC driver!");
             throw new RuntimeException(e);
         } catch (SQLException e) {
+            System.out.println("dbutil:Can't connect to database!");
             throw new RuntimeException(e);
         }
         return connection;

@@ -86,12 +86,16 @@ public class ItemDaoImpl implements ItemDao {
         try {
 
             Connection connection = DBUtil.getConnection();
+            System.out.println("ItemDaoImpl: 0");
             PreparedStatement preparedStatement=connection.prepareStatement(GET_INVENTORYQUANTITY);
+            System.out.println("ItemDaoImpl: 0.1");
             preparedStatement.setString(1,itemId);
             ResultSet resultSet= preparedStatement.executeQuery();
             if(resultSet.next())
             {
                 quantity=resultSet.getInt("value");
+                System.out.println(quantity);
+                System.out.println("ItemDaoImpl: ok");
             }
 
             DBUtil.closePreparedStatement(preparedStatement);
@@ -147,24 +151,35 @@ public class ItemDaoImpl implements ItemDao {
     public Item getItem(String itemId) {
         Item item=null;
         try {
+            System.out.println("ItemDaoImpl: 1");
             Connection connection = DBUtil.getConnection();
             PreparedStatement preparedStatement=connection.prepareStatement(GET_ITEM);
             preparedStatement.setString(1,itemId);
+            System.out.println("ItemDaoImpl: 2");
             ResultSet resultSet = preparedStatement.executeQuery();
+
             while (resultSet.next())
             {
                 item=new Item();
+
                 item.setItemId(resultSet.getString("ITEMID"));
                 item.setListPrice(resultSet.getBigDecimal("LISTPRICE"));
                 item.setUnitCost(resultSet.getBigDecimal("UNITCOST"));
                 item.setSupplierId(resultSet.getInt("supplierId"));
                 item.setStatus(resultSet.getString("STATUS"));
+
                 item.setAttribute1(resultSet.getString("attribute1"));
                 item.setAttribute2(resultSet.getString("attribute2"));
                 item.setAttribute3(resultSet.getString("attribute3"));
                 item.setAttribute4(resultSet.getString("attribute4"));
                 item.setAttribute5(resultSet.getString("attribute5"));
-                item.setQuantity(resultSet.getInt("QTY"));
+                System.out.println("ItemDaoImpl: 3");
+
+
+
+                //这里改过了，不然运行不了
+                item.setQuantity(0);
+                System.out.println("ItemDaoImpl: 4");
 
                 Product product=new Product();
                 product.setProductId(resultSet.getString("product.productId"));

@@ -1,8 +1,7 @@
 <component name="libraryTable">
   <library name="servlet-api">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../Apache-Tomcat-9.0.96/Apache-Tomcat-9.0.96/taglibs-standard-impl-1.2.5.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../Apache-Tomcat-9.0.96/Apache-Tomcat-9.0.96/taglibs-standard-spec-1.2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../apache-tomcat-9.0.96/lib/servlet-api.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

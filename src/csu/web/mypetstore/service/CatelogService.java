@@ -12,7 +12,7 @@ import csu.web.mypetstore.persistence.impl.ProductDaoImpl;
 
 import java.util.List;
 
-public class CatelogService {
+public class  CatelogService {
     private CategoryDao categoryDao;
     private ProductDao productDao;
     private ItemDao itemDao;

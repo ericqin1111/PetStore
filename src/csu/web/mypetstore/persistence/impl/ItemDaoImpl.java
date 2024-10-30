@@ -150,6 +150,7 @@ public class ItemDaoImpl implements ItemDao {
     @Override
     public Item getItem(String itemId) {
         Item item=null;
+        int quantity=0;
         try {
             System.out.println("ItemDaoImpl: 1");
             Connection connection = DBUtil.getConnection();
@@ -177,9 +178,6 @@ public class ItemDaoImpl implements ItemDao {
 
 
 
-                //这里改过了，不然运行不了
-                item.setQuantity(0);
-                System.out.println("ItemDaoImpl: 4");
 
                 Product product=new Product();
                 product.setProductId(resultSet.getString("product.productId"));

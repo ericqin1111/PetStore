@@ -1,4 +1,4 @@
-<%@ include file="../common/top.jsp"%>
+               <%@ include file="../common/top.jsp"%>
 
 <div id="BackLink"><stripes:link
         beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean">

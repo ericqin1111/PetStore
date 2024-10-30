@@ -93,4 +93,14 @@
         <servlet-name>CartFormServlet</servlet-name>
         <url-pattern>/cartForm</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>logFilter</filter-name>
+        <filter-class>csu.web.mypetstore.web.servlet.filter.logFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>logFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

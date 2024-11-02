@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class DBUtil {
     private static final String Driver = "com.mysql.cj.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/myfirstpetstore";
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/mypetstore";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "12345";
+    private static final String PASSWORD = "";
 
     public static Connection getConnection() {
         Connection connection = null;

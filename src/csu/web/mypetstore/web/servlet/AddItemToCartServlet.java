@@ -13,13 +13,13 @@ import java.io.IOException;
 
 public class AddItemToCartServlet extends HttpServlet {
 
-    private static final String CART_FORM = "/WEB-INF/jsp/cart/cart.jsp";
+    //private static final String CART_FORM = "/WEB-INF/jsp/cart/cart.jsp";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String workingItemId = req.getParameter("workingItemId");
-        System.out.println("adding cartss " + workingItemId);
+        //System.out.println("adding cartss " + workingItemId);
         HttpSession session = req.getSession();
 
         Cart cart = (Cart) session.getAttribute("cart");
@@ -29,7 +29,7 @@ public class AddItemToCartServlet extends HttpServlet {
         }
 
         if (cart.containsItemId(workingItemId)) {
-            cart.incrementQuantityByItemId(workingItemId);
+            cart.incrementQuantityByItemId(workingItemId);   //ddddddd
         } else {
             CatelogService catelogService = new CatelogService();
             boolean isInStock = catelogService.isItemInStock(workingItemId);
@@ -38,6 +38,7 @@ public class AddItemToCartServlet extends HttpServlet {
         }
 
         session.setAttribute("cart", cart);
-        req.getRequestDispatcher(CART_FORM).forward(req, resp);
+        System.out.println(getServletContext());
+        resp.sendRedirect("cartForm");
     }
 }

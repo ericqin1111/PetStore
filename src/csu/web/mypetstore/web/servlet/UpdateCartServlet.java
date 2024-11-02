@@ -41,4 +41,9 @@ public class UpdateCartServlet extends HttpServlet {
         req.getRequestDispatcher(CART_FORM).forward(req, resp);
 
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
 }

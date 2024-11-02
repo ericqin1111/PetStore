@@ -23,7 +23,7 @@
         <th>&nbsp;</th>
       </tr>
 
-      <c:if test="${sessionScope.cart.numberOfItems == 0}">
+      <c:if test="${sessionScope.cart.numberOfItems == 0 || sessionScope.cart.numberOfItems == null}" >
         <tr>
           <td colspan="8"><b>Your cart is empty.</b></td>
         </tr>

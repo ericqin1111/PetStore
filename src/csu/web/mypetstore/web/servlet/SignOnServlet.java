@@ -35,7 +35,7 @@ public class SignOnServlet extends HttpServlet {
             }  else{
                     HttpSession session=req.getSession();
                     session.setAttribute("loginAccount",loginAccount);
-                    resp.sendRedirect("mainForm");
+                    resp.sendRedirect("mainFrom");
                 }
 
 

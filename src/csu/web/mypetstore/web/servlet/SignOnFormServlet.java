@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class SignonFormServlet extends HttpServlet {
+public class SignOnFormServlet extends HttpServlet {
 
     private static final String SIGN_ON_Form="/WEB-INF/jsp/account/signon.jsp";
     @Override

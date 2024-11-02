@@ -2,7 +2,7 @@ package csu.web.mypetstore.persistence;
 
 import csu.web.mypetstore.domain.Account;
 
-public interface AccountDao {
+public interface AccountDao{
     Account getAccountByUsername(String username);
 
     Account getAccountByUsernameAndPassword(Account account);

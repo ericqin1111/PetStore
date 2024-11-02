@@ -32,7 +32,7 @@
 
     <servlet>
         <servlet-name>SignOnFormServlet</servlet-name>
-        <servlet-class>csu.web.mypetstore.web.servlet.SignonFormServlet</servlet-class>
+        <servlet-class>csu.web.mypetstore.web.servlet.SignOnFormServlet</servlet-class>
     </servlet>
 
     <servlet>

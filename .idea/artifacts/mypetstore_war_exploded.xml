@@ -7,7 +7,12 @@
         <element id="directory" name="classes">
           <element id="module-output" name="mypetstore" />
         </element>
-        <element id="directory" name="lib" />
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="taglibs-standard-impl-1.2.5" />
+          <element id="library" level="project" name="servlet-api" />
+          <element id="library" level="project" name="jsp-api" />
+        </element>
       </element>
     </root>
   </artifact>

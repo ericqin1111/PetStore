@@ -1,14 +1,10 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package csu.web.mypetstore.domain;
 
 import java.io.Serializable;
 
 public class Account implements Serializable {
     private static final long serialVersionUID = 8751282105532159742L;
+
     private String username;
     private String password;
     private String email;
@@ -28,11 +24,8 @@ public class Account implements Serializable {
     private boolean bannerOption;
     private String bannerName;
 
-    public Account() {
-    }
-
     public String getUsername() {
-        return this.username;
+        return username;
     }
 
     public void setUsername(String username) {
@@ -40,7 +33,7 @@ public class Account implements Serializable {
     }
 
     public String getPassword() {
-        return this.password;
+        return password;
     }
 
     public void setPassword(String password) {
@@ -48,7 +41,7 @@ public class Account implements Serializable {
     }
 
     public String getEmail() {
-        return this.email;
+        return email;
     }
 
     public void setEmail(String email) {
@@ -56,31 +49,23 @@ public class Account implements Serializable {
     }
 
     public String getFirstName() {
-        return this.firstName;
+        return firstName;
     }
 
-//    @Validate(
-//            required = true,
-//            on = {"newAccount", "editAccount"}
-//    )
-//    public void setFirstName(String firstName) {
-//        this.firstName = firstName;
-//    }
-//
-//    public String getLastName() {
-//        return this.lastName;
-//    }
-//
-//    @Validate(
-//            required = true,
-//            on = {"newAccount", "editAccount"}
-//    )
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
     public String getStatus() {
-        return this.status;
+        return status;
     }
 
     public void setStatus(String status) {
@@ -88,7 +73,7 @@ public class Account implements Serializable {
     }
 
     public String getAddress1() {
-        return this.address1;
+        return address1;
     }
 
     public void setAddress1(String address1) {
@@ -96,7 +81,7 @@ public class Account implements Serializable {
     }
 
     public String getAddress2() {
-        return this.address2;
+        return address2;
     }
 
     public void setAddress2(String address2) {
@@ -104,7 +89,7 @@ public class Account implements Serializable {
     }
 
     public String getCity() {
-        return this.city;
+        return city;
     }
 
     public void setCity(String city) {
@@ -112,7 +97,7 @@ public class Account implements Serializable {
     }
 
     public String getState() {
-        return this.state;
+        return state;
     }
 
     public void setState(String state) {
@@ -120,7 +105,7 @@ public class Account implements Serializable {
     }
 
     public String getZip() {
-        return this.zip;
+        return zip;
     }
 
     public void setZip(String zip) {
@@ -128,7 +113,7 @@ public class Account implements Serializable {
     }
 
     public String getCountry() {
-        return this.country;
+        return country;
     }
 
     public void setCountry(String country) {
@@ -136,7 +121,7 @@ public class Account implements Serializable {
     }
 
     public String getPhone() {
-        return this.phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
@@ -144,7 +129,7 @@ public class Account implements Serializable {
     }
 
     public String getFavouriteCategoryId() {
-        return this.favouriteCategoryId;
+        return favouriteCategoryId;
     }
 
     public void setFavouriteCategoryId(String favouriteCategoryId) {
@@ -152,7 +137,7 @@ public class Account implements Serializable {
     }
 
     public String getLanguagePreference() {
-        return this.languagePreference;
+        return languagePreference;
     }
 
     public void setLanguagePreference(String languagePreference) {
@@ -160,7 +145,7 @@ public class Account implements Serializable {
     }
 
     public boolean isListOption() {
-        return this.listOption;
+        return listOption;
     }
 
     public void setListOption(boolean listOption) {
@@ -168,7 +153,7 @@ public class Account implements Serializable {
     }
 
     public boolean isBannerOption() {
-        return this.bannerOption;
+        return bannerOption;
     }
 
     public void setBannerOption(boolean bannerOption) {
@@ -176,7 +161,7 @@ public class Account implements Serializable {
     }
 
     public String getBannerName() {
-        return this.bannerName;
+        return bannerName;
     }
 
     public void setBannerName(String bannerName) {

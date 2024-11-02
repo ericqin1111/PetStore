@@ -20,7 +20,8 @@ public class UpdateCartServlet extends HttpServlet {
         System.out.println("UpdateCartServlet: 1");
         HttpSession session = req.getSession();
         Cart cart = (Cart) session.getAttribute("cart");
-        Iterator<CartItem> cartItems = cart.getAllCartItems();
+        if (cart != null) {
+            Iterator<CartItem> cartItems = cart.getAllCartItems();
 
         while (cartItems.hasNext()) {
             CartItem cartItem = (CartItem) cartItems.next();
@@ -37,6 +38,7 @@ public class UpdateCartServlet extends HttpServlet {
                 System.out.println("UpdateCartServlet: " + e.getMessage());
                 //ignore parse exceptions on purpose
             }
+        }
         }
         req.getRequestDispatcher(CART_FORM).forward(req, resp);
 

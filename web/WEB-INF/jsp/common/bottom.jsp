@@ -6,7 +6,7 @@
     <div id="PoweredBy">&nbsp<a href="http://www.csu.edu.cn">www.csu.edu.cn</a>
     </div>
 
-    <div id="Banner">
+<%--    <div id="Banner">--%>
         <!-- 登陆用户的banner
     </div>
 

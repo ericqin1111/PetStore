@@ -1,7 +1,9 @@
 package csu.web.mypetstore.web.servlet;
 
 import csu.web.mypetstore.domain.Account;
+import csu.web.mypetstore.domain.Product;
 import csu.web.mypetstore.service.AccountService;
+import csu.web.mypetstore.service.CatelogService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 public class SignOnServlet extends HttpServlet {
 
@@ -35,6 +38,12 @@ public class SignOnServlet extends HttpServlet {
             }  else{
                     HttpSession session=req.getSession();
                     session.setAttribute("loginAccount",loginAccount);
+
+                    if(loginAccount.isListOption()){
+                        CatelogService catelogService=new CatelogService();
+                        List<Product> myList=catelogService.getProductListByCategory(loginAccount.getFavouriteCategoryId());
+                        session.setAttribute("myList",myList);
+                    }
                     resp.sendRedirect("mainFrom");
                 }
 

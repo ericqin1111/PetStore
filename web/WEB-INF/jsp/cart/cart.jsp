@@ -73,15 +73,13 @@
   </c:if>
   </div>
 
-<%--  <div id="MyList">--%>
-<%--    <c:if test="${sessionScope.accountBean != null}">--%>
-<%--      <c:if test="${!sessionScope.accountBean.authenticated}">--%>
-<%--        <c:if test="${!empty sessionScope.accountBean.account.listOption}">--%>
-<%--          <%@ include file="IncludeMyList.jsp"%>--%>
-<%--        </c:if>--%>
-<%--      </c:if>--%>
-<%--    </c:if>--%>
-<%--  </div>--%>
+  <div id="MyList">
+    <c:if test="${sessionScope.loginAccount != null}">
+        <c:if test="${!empty sessionScope.loginAccount.listOption}">
+          <%@ include file="includeMyList.jsp"%>
+        </c:if>
+      </c:if>
+  </div>
 
   <div id="Separator">&nbsp;</div>
 </div>

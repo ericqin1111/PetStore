@@ -31,6 +31,8 @@
             <c:if test="${sessionScope.loginAccount==null}">
                 <a href="signonForm">Sign In</a>
                 <img align="middle" src="images/separator.gif"/>
+                <a href="registerForm">Register</a>
+                    <img align="middle" src="images/separator.gif"/>
             </c:if>
 
             <c:if test="${sessionScope.loginAccount!=null}">
@@ -39,6 +41,7 @@
                 <a href="">My Account</a>
                 <img align="middle" src="images/separator.gif"/>
             </c:if>
+
 
             <a href="help.html">?</a>
         </div>

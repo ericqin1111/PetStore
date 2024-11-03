@@ -15,4 +15,19 @@ public class AccountService {
         account.setPassword(password);
         return this.accountDao.getAccountByUsernameAndPassword(account);
     }
+
+    public int doRegister(Account account) throws Exception{
+//        Account account1=accountDao.getAccountByUsernameAndPassword(account);
+//        if(account1==null){
+//            throw new RuntimeException("");
+//        }
+        Account existAccount= accountDao.getAccountByUsername(account.getUsername());
+        if(existAccount!=null){
+            throw new RuntimeException("用户名已存在");
+        }
+
+        accountDao.insertAccount(account);
+        return 0;
+    };
+
 }

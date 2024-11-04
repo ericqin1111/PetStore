@@ -22,10 +22,10 @@ public class AccountService {
 //            throw new RuntimeException("");
 //        }
         Account existAccount= accountDao.getAccountByUsername(account.getUsername());
-        if(existAccount!=null){
-            throw new RuntimeException("用户名已存在");
-        }
+        if(existAccount!=null||account.getUsername()==null){
+            throw new RuntimeException("用户名为空或已存在");
 
+        }
         accountDao.insertAccount(account);
         return 0;
     };

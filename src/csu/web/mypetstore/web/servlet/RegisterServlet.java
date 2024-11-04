@@ -15,6 +15,10 @@ import java.util.Map;
 import java.util.Set;
 
 public class RegisterServlet extends HttpServlet {
+
+    public String RegisterMsg;
+
+    private static final String Register_Form="/WEB-INF/jsp/account/register.jsp";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req,resp);
@@ -51,9 +55,12 @@ public class RegisterServlet extends HttpServlet {
             resp.sendRedirect("signonForm");
         }
         catch (Exception e){//注册失败返回注册页面
-            resp.sendRedirect("RegisterForm");
-            throw new RuntimeException(e);
+            this.RegisterMsg = "注册失败，用户名已存在!";
+            req.setAttribute("RegisterMsg", this.RegisterMsg);
+            req.getRequestDispatcher(Register_Form).forward(req, resp);
 
+
+//            resp.sendRedirect("RegisterForm");
 
         }
 

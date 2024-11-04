@@ -103,9 +103,6 @@ public class AccountDaoImpl implements AccountDao {
             // 获取数据库连接
             Connection connection = DBUtil.getConnection();
 
-            // 准备SQL插入语句
-            // 假设您有一个名为INSERT_ACCOUNT的SQL常量，它定义了插入Account的SQL语句
-            // 例如：INSERT INTO ACCOUNT (USERNAME, PASSWORD, EMAIL, FIRSTNAME, LASTNAME, STATUS) VALUES (?, ?, ?, ?, ?, ?)
             String sql = INSERT_ACCOUNT;
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
@@ -122,8 +119,6 @@ public class AccountDaoImpl implements AccountDao {
         } catch (SQLException e) {
             // 记录异常到日志中
             Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Error inserting account", e);
-
-            // 根据需要抛出或处理异常
             throw new RuntimeException("Error inserting account", e);
         }
     }

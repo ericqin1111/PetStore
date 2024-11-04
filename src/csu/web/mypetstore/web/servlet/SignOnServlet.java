@@ -18,12 +18,15 @@ public class SignOnServlet extends HttpServlet {
     private static final String SIGN_ON_Form="/WEB-INF/jsp/account/signon.jsp";
     private String username;
     private String password;
+    private String vcode;
     private String msg;
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.username=req.getParameter("username");
         this.password=req.getParameter("password");
-
+        this.vcode=req.getParameter("vcode");
+        HttpSession session=req.getSession();
+        String code=(String) session.getAttribute("code");
         //检验用户输入的正确性
         if(!validate()){
             req.setAttribute("signOnMsg",this.msg);
@@ -36,7 +39,7 @@ public class SignOnServlet extends HttpServlet {
                 this.msg = "用户密码错误";
                 req.getRequestDispatcher(SIGN_ON_Form).forward(req, resp);
             }  else{
-                    HttpSession session=req.getSession();
+//                    HttpSession session=req.getSession();
                     session.setAttribute("loginAccount",loginAccount);
 
                     if(loginAccount.isListOption()){
@@ -46,9 +49,6 @@ public class SignOnServlet extends HttpServlet {
                     }
                     resp.sendRedirect("mainFrom");
                 }
-
-
-
         }
     }
     private boolean validate(){

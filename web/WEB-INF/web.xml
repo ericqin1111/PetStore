@@ -60,10 +60,10 @@
         <servlet-class>csu.web.mypetstore.web.servlet.RegisterServlet</servlet-class>
     </servlet>
 
-
-
-
-
+    <servlet>
+        <servlet-name>CodeServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.CodeServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>MainFormServlet</servlet-name>
@@ -117,6 +117,11 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CodeServlet</servlet-name>
+        <url-pattern>/code</url-pattern>
     </servlet-mapping>
 
 <!--    <filter>-->

@@ -2,6 +2,7 @@ package csu.web.mypetstore.web.servlet;
 
 import csu.web.mypetstore.domain.Cart;
 import csu.web.mypetstore.domain.CartItem;
+import csu.web.mypetstore.persistence.impl.OperateLoadCartImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -31,8 +32,10 @@ public class UpdateCartServlet extends HttpServlet {
                 int quantity = Integer.parseInt(quantityString);
 
                 cart.setQuantityByItemId(itemId, quantity);
+                OperateLoadCartImpl.SetQuantity(req, resp, itemId, quantity);
                 if (quantity < 1) {
                     cartItems.remove();
+                    OperateLoadCartImpl.DeleteCart(req, resp, itemId);
                 }
             } catch (Exception e) {
                 System.out.println("UpdateCartServlet: " + e.getMessage());

@@ -15,6 +15,7 @@ public class AccountDaoImpl implements AccountDao {
 
     private static final String GET_ACCOUNT_BY_USERNAME_AND_PASSWORD = "SELECT " +
             "SIGNON.USERNAME," +
+            "SIGNON.PASSWORD," +
             "ACCOUNT.EMAIL,ACCOUNT.FIRSTNAME,ACCOUNT.LASTNAME,ACCOUNT.STATUS," +
             "ACCOUNT.ADDR1 AS address1,ACCOUNT.ADDR2 AS address2," +
             "ACCOUNT.CITY,ACCOUNT.STATE,ACCOUNT.ZIP,ACCOUNT.COUNTRY,ACCOUNT.PHONE," +
@@ -57,18 +58,23 @@ public class AccountDaoImpl implements AccountDao {
     public Account getAccountByUsernameAndPassword(Account account) {
         Account accountResult = null;
         try {
+
             Connection connection = DBUtil.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(GET_ACCOUNT_BY_USERNAME_AND_PASSWORD);
             preparedStatement.setString(1, account.getUsername());
             preparedStatement.setString(2, account.getPassword());
+
             ResultSet resultSet = preparedStatement.executeQuery();
+
             if (resultSet.next()){
+                System.out.println("account dao impl : 1");
                 accountResult = this.resultSetToAccount(resultSet);
-            }
+            }System.out.println("account dao impl : 2");
             DBUtil.closeResultSet(resultSet);
             DBUtil.closePreparedStatement(preparedStatement);
             DBUtil.closeConnection(connection);
         }catch (Exception e){
+            System.out.println("account dao impl : failure1");
             e.printStackTrace();
         }
         return accountResult;
@@ -76,12 +82,19 @@ public class AccountDaoImpl implements AccountDao {
 
     private Account resultSetToAccount(ResultSet resultSet) throws Exception{
         Account account = new Account();
+
+        if (resultSet == null){
+            System.out.println("Accountdaoimpl:bad");
+        }
         account.setUsername(resultSet.getString("username"));
+        System.out.println("Accountdaoimpl:1");
         account.setPassword(resultSet.getString("password"));
+        System.out.println("Accountdaoimpl:2");
         account.setEmail(resultSet.getString("email"));
         account.setFirstName(resultSet.getString("firstName"));
         account.setLastName(resultSet.getString("lastName"));
         account.setStatus(resultSet.getString("status"));
+
         account.setAddress1(resultSet.getString("address1"));
         account.setAddress2(resultSet.getString("address2"));
         account.setCity(resultSet.getString("city"));
@@ -94,6 +107,7 @@ public class AccountDaoImpl implements AccountDao {
         account.setListOption(resultSet.getInt("listOption") == 1);
         account.setBannerOption(resultSet.getInt("bannerOption") == 1);
         account.setBannerName(resultSet.getString("bannerName"));
+
         return account;
     }
 

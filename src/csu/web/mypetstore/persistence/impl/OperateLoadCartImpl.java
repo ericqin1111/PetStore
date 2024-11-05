@@ -28,6 +28,8 @@ public class OperateLoadCartImpl {
         PreparedStatement ps = conn.prepareStatement(CREATE_SAVE_TABLE);
         ps.executeUpdate();
         System.out.println("success in create table cart");
+        DBUtil.closePreparedStatement(ps);
+        DBUtil.closeConnection(conn);
     }
 
 
@@ -72,6 +74,9 @@ public class OperateLoadCartImpl {
         }
         session.setAttribute("cart", cart);
         Cart.cartLoaded = true;
+        DBUtil.closeResultSet(rs);
+        DBUtil.closePreparedStatement(ps);
+        DBUtil.closeConnection(conn);
     }
 
 
@@ -87,6 +92,8 @@ public class OperateLoadCartImpl {
         ps.setString(2, itemId);
         ps.setInt(3, 1);
         ps.executeUpdate();
+        DBUtil.closePreparedStatement(ps);
+        DBUtil.closeConnection(conn);
     }
 
     public static void DeleteCart(HttpServletRequest req, HttpServletResponse resp, String itemId) throws SQLException {
@@ -98,6 +105,8 @@ public class OperateLoadCartImpl {
         ps.setString(1, account.getUsername());
         ps.setString(2, itemId);
         ps.executeUpdate();
+        DBUtil.closePreparedStatement(ps);
+        DBUtil.closeConnection(conn);
     }
     public static void IncreaseQuantity(HttpServletRequest req, HttpServletResponse resp, String itemId) throws SQLException {
         Connection conn = DBUtil.getConnection();

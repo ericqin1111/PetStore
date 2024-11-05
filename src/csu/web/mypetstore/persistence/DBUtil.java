@@ -6,7 +6,7 @@ public class DBUtil {
     private static final String Driver = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/mypetstore";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "238947";
 
     public static Connection getConnection() {
         Connection connection = null;

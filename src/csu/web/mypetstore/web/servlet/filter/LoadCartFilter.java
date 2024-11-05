@@ -27,9 +27,11 @@ public class LoadCartFilter implements Filter {
             response.sendRedirect("signonForm");
         }
         else {
-            if (!Cart.cartLoaded) {
+            Boolean flag = (Boolean) session.getAttribute("dataLoaded");
+            if (flag == null) {
                 try {
                     OperateLoadCartImpl.loadCart((HttpServletRequest) servletRequest, (HttpServletResponse) servletResponse);
+                    session.setAttribute("dataLoaded", true);
                 } catch (SQLException e) {
                     System.out.println("Load Cart Filter Error:1");
                     throw new RuntimeException(e);

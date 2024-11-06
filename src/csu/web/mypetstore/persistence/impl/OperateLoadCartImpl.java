@@ -73,7 +73,6 @@ public class OperateLoadCartImpl {
             cart.setQuantityByItemId(itemId, quantity);
         }
         session.setAttribute("cart", cart);
-        Cart.cartLoaded = true;
         DBUtil.closeResultSet(rs);
         DBUtil.closePreparedStatement(ps);
         DBUtil.closeConnection(conn);

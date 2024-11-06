@@ -12,7 +12,7 @@ public class Cart implements Serializable {
     private final Map<String, CartItem> itemMap = Collections.synchronizedMap(new HashMap<String, CartItem>());
     private final List<CartItem> itemList = new ArrayList<CartItem>();
 
-    public static boolean cartLoaded = false;
+//    public static boolean cartLoaded = false;
 
 
     public static void saveData(HttpSession session, Cart cart) {

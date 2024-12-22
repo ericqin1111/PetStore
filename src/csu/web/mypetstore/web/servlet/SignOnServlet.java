@@ -23,26 +23,29 @@ public class SignOnServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.username=req.getParameter("username");
-        System.out.println("SignonSevlet:1");
+//        System.out.println("SignonSevlet:1");
         this.password=req.getParameter("password");
         this.vcode=req.getParameter("vcode");
         HttpSession session=req.getSession();
         String code=(String) session.getAttribute("code");
-        System.out.println("SignonSevlet:2");
+//        System.out.println("SignonSevlet:2");
         //检验用户输入的正确性
         if(!validate()){
             req.setAttribute("signOnMsg",this.msg);
             req.getRequestDispatcher(SIGN_ON_Form).forward(req,resp);
-        }
-        else {
+        } else if (!vcode.equalsIgnoreCase(code)) {
+            this.msg="验证码错误";
+            req.setAttribute("signOnMsg",this.msg);
+            req.getRequestDispatcher(SIGN_ON_Form).forward(req,resp);
+
+        } else {
             AccountService accountService=new AccountService();
             Account loginAccount=accountService.getAccount(username,password);
             if(loginAccount==null) {
                 System.out.println("bad enter from signonservlet");
-                this.msg = "用户密码错误";
+                this.msg = "用户名或密码错误";
                 req.getRequestDispatcher(SIGN_ON_Form).forward(req, resp);
             }  else{
-
 //                    HttpSession session=req.getSession();
                     session.setAttribute("loginAccount",loginAccount);
 

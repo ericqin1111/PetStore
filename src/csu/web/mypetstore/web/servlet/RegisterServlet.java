@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +18,9 @@ import java.util.Set;
 public class RegisterServlet extends HttpServlet {
 
     public String RegisterMsg;
+
+    private String vcode;
+
 
     private static final String Register_Form="/WEB-INF/jsp/account/register.jsp";
     @Override
@@ -47,6 +51,15 @@ public class RegisterServlet extends HttpServlet {
         account.setPassword(password);
         account.setEmail(email);
 
+        this.vcode=req.getParameter("vcode");
+        HttpSession session=req.getSession();
+        String code=(String) session.getAttribute("code");
+        if(!vcode.equalsIgnoreCase(code)){
+            this.RegisterMsg="注册失败，验证码错误";
+            req.setAttribute("RegisterMsg", this.RegisterMsg);
+            req.getRequestDispatcher(Register_Form).forward(req, resp);
+        }
+
         //调用service，进行注册业务处理
         AccountService accountService=new AccountService();
         try {
@@ -63,11 +76,5 @@ public class RegisterServlet extends HttpServlet {
 //            resp.sendRedirect("RegisterForm");
 
         }
-
-
-        //响应客户端浏览器
-
-
-        //
     }
 }

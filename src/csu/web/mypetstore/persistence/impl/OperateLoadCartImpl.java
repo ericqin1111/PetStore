@@ -18,6 +18,7 @@ public class OperateLoadCartImpl {
             + "QUANTITY INTEGER NOT NULL)";
 
     private static String LOAD_TABLE = "SELECT * FROM CART WHERE USERNAME = ?";
+    private static String CLEAR_TABLE = "DELETE FROM CART WHERE USERNAME = ?";
     private static String INSERT_TABLE = "INSERT INTO CART VALUES(?,?,?)";
     private static String DELETE_TABLE = "DELETE FROM CART WHERE USERNAME = ? AND ITEMID = ?";
     private static String INCREASE_QUANTITY = "UPDATE CART SET QUANTITY = QUANTITY + 1 WHERE USERNAME = ? AND ITEMID = ?";
@@ -32,6 +33,19 @@ public class OperateLoadCartImpl {
         DBUtil.closeConnection(conn);
     }
 
+    public static void clearTable(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
+        Connection conn = DBUtil.getConnection();
+        PreparedStatement ps = conn.prepareStatement(CLEAR_TABLE);
+        HttpSession session = req.getSession();
+        Account account = (Account) session.getAttribute("loginAccount");
+
+        ps.setString(1, account.getUsername());
+        System.out.println("dddddddd");
+        boolean rs = ps.execute();
+
+
+
+    }
 
     //载入数据的接口
     public static void loadCart(HttpServletRequest req, HttpServletResponse resp) throws SQLException {

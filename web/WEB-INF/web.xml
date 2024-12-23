@@ -8,6 +8,11 @@
         <servlet-name>MainFormServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.MainFormServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SubmitServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.SubmitServlet</servlet-class>
+    </servlet>
+
 
     <servlet>
         <servlet-name>CategoryFormServlet</servlet-name>
@@ -122,6 +127,10 @@
     <servlet-mapping>
         <servlet-name>CodeServlet</servlet-name>
         <url-pattern>/code</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubmitServlet</servlet-name>
+        <url-pattern>/submit</url-pattern>
     </servlet-mapping>
 
 <!--    <filter>-->

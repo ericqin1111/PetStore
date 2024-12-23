@@ -19,7 +19,6 @@ public class NewOrderFormServlet extends HttpServlet {
         Account loginAccount=(Account) session.getAttribute("loginAccount");
         if(loginAccount==null){//用户没有登录
             resp.sendRedirect("signonForm");
-
         }
         else {//用户已登录
             req.getRequestDispatcher(New_ORDER_Form).forward(req,resp);

@@ -1,8 +1,13 @@
-               <%@ include file="../common/top.jsp"%>
+<%@ include file="../common/top.jsp"%>
 
-<div id="BackLink"><stripes:link
-        beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean">
-  Return to Main Menu</stripes:link></div>
+
+
+
+<%--<div id="BackLink"><stripes:link--%>
+<%--        beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean">--%>
+<%--  Return to Main Menu</stripes:link></div>--%>
+
+
 
 <div id="Catalog">
 
@@ -11,7 +16,7 @@
     <h2>Shopping Cart</h2>
 
     <form action="updateCart" method="post">
-      <table>
+      <table id="Items">
       <tr>
         <th><b>Item ID</b></th>
         <th><b>Product ID</b></th>
@@ -30,8 +35,8 @@
       </c:if>
 
       <c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">
-        <tr>
-          <td>
+        <tr class="item" itemID=${cartItem.item.itemId}>
+          <td class="itemId">
 
             <a href="itemForm?itemId=${cartItem.item.itemId}">${cartItem.item.itemId} </a>
 
@@ -83,5 +88,45 @@
 
   <div id="Separator">&nbsp;</div>
 </div>
+
+<script>
+  const table = document.getElementById("Items");
+  table.addEventListener("input", function(event){
+            if(event.target.tagName === "INPUT"){
+              const input = event.target;
+              const itemElement = input.closest(".item");
+
+              const itemID = itemElement.getAttribute("itemID");
+              const newVal = input.value;
+              console.log(itemID);
+              console.log(newVal);
+
+              const xhr = new XMLHttpRequest();
+
+              xhr.open("GET", "numberChangeCart?itemID=" + itemID + "&newVal=" + newVal, true);
+
+              xhr.setRequestHeader("Content-Type", "application/json");
+
+              xhr.onreadystatechange = function (){
+                  if (xhr.readyState === 4){
+                      if(xhr.status === 200){
+                          console.log("success");
+                    }
+                  }
+                  else {
+                    console.log("fail");
+                  }
+
+              };
+
+
+              xhr.send(null);
+
+
+            }
+          }
+  )
+
+</script>
 
 <%@ include file="../common/bottom.jsp"%>

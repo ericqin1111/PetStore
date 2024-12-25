@@ -17,6 +17,7 @@ public class OperateLoadCartImpl {
             + "ITEMID VARCHAR(10) NOT NULL,"
             + "QUANTITY INTEGER NOT NULL)";
 
+
     private static String LOAD_TABLE = "SELECT * FROM CART WHERE USERNAME = ?";
     private static String CLEAR_TABLE = "DELETE FROM CART WHERE USERNAME = ?";
     private static String INSERT_TABLE = "INSERT INTO CART VALUES(?,?,?)";

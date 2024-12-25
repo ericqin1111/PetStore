@@ -1,5 +1,4 @@
 package csu.web.mypetstore.domain;
-
 import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 import java.math.BigDecimal;

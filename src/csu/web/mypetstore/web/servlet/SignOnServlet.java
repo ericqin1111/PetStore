@@ -45,6 +45,7 @@ public class SignOnServlet extends HttpServlet {
                 System.out.println("bad enter from signonservlet");
                 this.msg = "用户名或密码错误";
                 req.getRequestDispatcher(SIGN_ON_Form).forward(req, resp);
+
             }  else{
 //                    HttpSession session=req.getSession();
                     session.setAttribute("loginAccount",loginAccount);
@@ -54,6 +55,14 @@ public class SignOnServlet extends HttpServlet {
                         List<Product> myList=catelogService.getProductListByCategory(loginAccount.getFavouriteCategoryId());
                         session.setAttribute("myList",myList);
                     }
+
+                //把当前账号信息传给修改界面
+                HttpSession session2 = req.getSession();
+                // 设置会话属性
+                session.setAttribute("Current_username", this.username);
+                session.setAttribute("Current_password", this.password);
+
+                // 响应客户端，但不进行跳转
                     resp.sendRedirect("mainFrom");
                 }
         }

@@ -9,11 +9,13 @@ public interface AccountDao{
 
     void insertAccount(Account account);
 
+    void updateAccount(String username, String newPassword);
+
     void insertProfile(Account account);
 
     void insertSignon(Account account);
 
-    void updateAccount(Account account);
+
 
     void updateProfile(Account account);
 

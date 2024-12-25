@@ -61,9 +61,28 @@
     </servlet>
 
     <servlet>
+        <servlet-name>UpdateServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.UpdateServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>AccountUpdateSevlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.AccountUpdateServlet</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>CodeServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.CodeServlet</servlet-class>
     </servlet>
+
+    <servlet>
+        <servlet-name>prodectAutoCompleteServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.prodectAutoCompleteServlet</servlet-class>
+    </servlet>
+
+
+
+
 
     <servlet-mapping>
         <servlet-name>MainFormServlet</servlet-name>
@@ -123,6 +142,31 @@
         <servlet-name>CodeServlet</servlet-name>
         <url-pattern>/code</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>prodectAutoCompleteServlet</servlet-name>
+        <url-pattern>/productAuto</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateServlet</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AccountUpdateSevlet</servlet-name>
+        <url-pattern>/accountUpdate</url-pattern>
+    </servlet-mapping>
+<!--    <servlet>-->
+<!--        <servlet-name>UsernameIsExist</servlet-name>-->
+<!--        <servlet-class>csu.web.mypetstore.web.servlet.UsernameIsExistServlet</servlet-class>-->
+<!--    </servlet>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>UsernameIsExist</servlet-name>-->
+<!--        <url-pattern>/UsernameIsExist</url-pattern>-->
+<!--    </servlet-mapping>-->
+<!--    -->
 
 <!--    <filter>-->
 <!--        <filter-name>logFilter</filter-name>-->

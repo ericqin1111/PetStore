@@ -32,6 +32,12 @@ public class AccountDaoImpl implements AccountDao {
             "PASSWORD" +
             ") VALUES (?, ?)";
 
+    private static final String UPDATE_ACCOUNT = "UPDATE " +
+            "SIGNON " +
+            "SET " +
+            "PASSWORD = ? " +
+            "WHERE USERNAME = ?";
+
 
 
     @Override
@@ -138,6 +144,39 @@ public class AccountDaoImpl implements AccountDao {
     }
 
     @Override
+    public void updateAccount(String username,String newPassword) {
+
+        try {
+            // 获取数据库连接
+            Connection connection = DBUtil.getConnection();
+            String sql = UPDATE_ACCOUNT;
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            // 设置SQL语句的参数
+            preparedStatement.setString(1, newPassword);
+            preparedStatement.setString(2, username);
+            // 更新
+            int affectedRows = preparedStatement.executeUpdate(); // 执行更新操作
+            if (affectedRows > 0) {
+                System.out.println("Password updated successfully!");
+            } else {
+                System.out.println("No rows were updated.");
+            }
+            // 关闭资源
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+
+        } catch (SQLException e) {
+            // 记录异常到日志中
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Error update account", e);
+            throw new RuntimeException("Error updating account", e);
+        }
+
+
+
+        }
+
+    @Override
     public void insertProfile(Account account) {
 
     }
@@ -147,10 +186,7 @@ public class AccountDaoImpl implements AccountDao {
 
     }
 
-    @Override
-    public void updateAccount(Account account) {
 
-    }
 
     @Override
     public void updateProfile(Account account) {

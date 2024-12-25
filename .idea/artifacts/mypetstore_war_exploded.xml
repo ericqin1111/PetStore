@@ -10,10 +10,10 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="lib" />
           <element id="library" level="project" name="taglibs-standard-impl-1.2.5" />
-          <element id="library" level="project" name="servlet-api" />
-          <element id="library" level="project" name="jsp-api" />
+          <element id="library" level="project" name="fastjson-1.2.83" />
         </element>
       </element>
+      <element id="library" level="project" name="jsp-api" />
     </root>
   </artifact>
 </component>

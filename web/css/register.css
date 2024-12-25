@@ -1,0 +1,133 @@
+body{
+    background-color: #000;
+    font-family: 'Oswald','Futura',sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#page{
+    background-color: #403c3b;
+    margin: 0 auto 0 auto;
+}
+
+h1{
+    background-image: url("../images/bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;
+    text-indent: -1000%;
+    height: 75px;
+    line-height: 75px;
+    width: 117px;
+    margin: 0 auto 0 auto ;
+    padding: 30px 10px 20px 10px;
+
+}
+h2 span{
+    background-color: #fff;
+    color: #000;
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 0;
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    top:-5px;
+    height: 22px;
+    width: 26px;
+    padding: 4px 0 0 0;
+}
+ul{
+    background-color:#ec8b68;
+    color:#fff;
+    border-top: 1px solid #fe9772;
+    border-bottom: 1px solid #9f593f;
+    font-size: 24px;
+    letter-spacing: .05em;
+    list-style-type: none;
+    text-shadow: 2px 2px 1px #9f593f;
+    height: 50px ;
+    padding-left: 1em;
+    padding-top: 10px;
+}
+li a{
+    color: #fff;
+    background-image: url("../images/bg.jpg");
+    background-position: right,center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    padding-right: 36px;
+}
+
+li.complete a{
+    background-image: none;
+}
+p{
+    background-color:#7f675c ;
+    color: #e3dfdd;
+    padding:10px;
+    margin: 20px auto;
+    min-width: 20%;
+    max-width: 80%;
+    border-radius: 5px;
+    text-align: center;
+    text-shadow: -1px 1px 0 #333;
+    -webkit-box-shadow: inset 1px 0 0 #a5948c;
+    box-shadow: inset 1px -1px 0 0 #a5948c;
+}
+
+.hot{
+    background-color: #d7666b;
+    color: #fff;
+    text-shadow: 2px 2px 1px #914141;
+    border-top: 1px solid #e99295;
+    border-bottom: 1px solid #914141;
+}
+.cool{
+    background-color: #6cc0ac;
+    color: #fff;
+    text-shadow: 2px 2px 1px #3b6a5e;
+    border-top: 1px solid #7ee0c9;
+    border-bottom: 1px solid #3b6a5e;
+
+}
+.complete{
+    background-color: #999;
+    color: #fff;
+    background-image: url("../images/bg.jpg");
+    background-position: right,center;
+    background-repeat: no-repeat;
+    border-top: 1px solid #b0b0b0;
+    text-shadow: 2px 2px 1px #333;
+}
+.complete a{display: block}
+
+form{
+    padding: 0 60px 65px 60px;
+}
+label{
+    color: #fff;
+    display: block;
+    margin: 10px 0 10px 0;
+    font-size: 24px;
+}
+/*.okmsg{*/
+/*    color:green;*/
+/*}*/
+/*.errormsg{*/
+/*    color:red;*/
+/*}*/
+
+    /*@Override*/
+    /*protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {*/
+    /*    req.getRequestDispatcher(REGISTER_Form).forward(req, resp);*/
+    /*    String username=req.getParameter("username");*/
+    /*    boolean result=service.usernameIsExist(username);*/
+    /*    resp.setContentType("text/plain");*/
+    /*    PrintWriter out=resp.getWriter();*/
+    /*    if(result){*/
+    /*        out.print("Exist");*/
+    /*    }else{*/
+    /*            out.print("Not Exist");*/
+    /*        }*/
+    /*    out.flush();*/
+    /*    out.close();*/

@@ -1,8 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ include file="../common/top.jsp"%>
-
 <div id="Catalog">
-
     <form action="signOn" method="post">
         <p>Please enter your username and password.</p>
         <c:if test="${requestScope.signOnMsg!=null}">

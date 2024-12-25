@@ -11,6 +11,7 @@
     <title>MyPetStore</title>
     <link rel="StyleSheet" href="css/mypetstore.css" type="text/css"
           media="screen" />
+    <script src="http://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -38,7 +39,7 @@
             <c:if test="${sessionScope.loginAccount!=null}">
                 <a href="#">Sign Out</a>
                 <img align="middle" src="images/separator.gif"/>
-                <a href="">My Account</a>
+                <a href="accountUpdate">My Account</a>
                 <img align="middle" src="images/separator.gif"/>
             </c:if>
 
@@ -50,9 +51,19 @@
     <div id="Search">
         <div id="SearchContent">
             <form action="" method="post">
-                <input type="text" name="keyword" size="14">
+                <input type="text" name="keyword" size="14" id="keyword">
                 <input type="submit" value="Search">
             </form>
+            <div id="productAutoComplete">
+                <ul id="productAutoList">
+<%--                    <li class="productAutoItem">Amazon Parrot</li>--%>
+<%--                    <li class="productAutoItem">Labrador Retriever</li>--%>
+<%--                    <li class="productAutoItem">Golden Retriever</li>--%>
+<%--                    <li class="productAutoItem">Rattlesnake</li>--%>
+<%--                    <li class="productAutoItem">Tiger Shark</li>--%>
+<%--                    <li class="productAutoItem">Dalmation</li>--%>
+                </ul>
+            </div>
         </div>
 
     </div>
@@ -79,3 +90,4 @@
 </div>
 
 <div id="Content">
+<%--</div>--%>

@@ -45,7 +45,9 @@ public class Account implements Serializable {
     }
 
     public void setEmail(String email) {
+        System.out.println("sadsa");
         this.email = email;
+        System.out.println("sadssssa");
     }
 
     public String getFirstName() {

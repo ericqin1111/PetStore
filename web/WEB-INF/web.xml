@@ -8,6 +8,11 @@
         <servlet-name>MainFormServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.MainFormServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SubmitServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.SubmitServlet</servlet-class>
+    </servlet>
+
 
     <servlet>
         <servlet-name>CategoryFormServlet</servlet-name>
@@ -74,6 +79,7 @@
         <servlet-name>CodeServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.CodeServlet</servlet-class>
     </servlet>
+<<<<<<< HEAD
 
     <servlet>
         <servlet-name>prodectAutoCompleteServlet</servlet-name>
@@ -84,6 +90,12 @@
 
 
 
+=======
+    <servlet>
+        <servlet-name>NumberChangeCartServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.NumberChangeCartServlet</servlet-class>
+    </servlet>
+>>>>>>> 748a8a19f27a2f0c16b159d0c98dbe2726901c09
     <servlet-mapping>
         <servlet-name>MainFormServlet</servlet-name>
         <url-pattern>/mainFrom</url-pattern>
@@ -128,6 +140,7 @@
         <url-pattern>/cartForm</url-pattern>
     </servlet-mapping>
 
+
     <servlet-mapping>
         <servlet-name>RegisterFormServlet</servlet-name>
         <url-pattern>/registerForm</url-pattern>
@@ -141,6 +154,14 @@
     <servlet-mapping>
         <servlet-name>CodeServlet</servlet-name>
         <url-pattern>/code</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubmitServlet</servlet-name>
+        <url-pattern>/submit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NumberChangeCartServlet</servlet-name>
+        <url-pattern>/numberChangeCart</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

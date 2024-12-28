@@ -80,19 +80,19 @@ public class logFilter implements Filter {
     }
 
     public void insertIntoViewlog(String value) throws SQLException {
-        String SQL="INSERT INTO viewlog(viewhistory) VALUES (?)";
+        String SQL="INSERT INTO viewlog(history) VALUES (?)";
         PreparedStatement preparedStatement=connection.prepareStatement(SQL);
         preparedStatement.setString(1,value);
         preparedStatement.executeUpdate();
     }
     private void insertIntoCartlog(String value) throws SQLException {
-        String SQL="INSERT INTO cartlog(carthistory) VALUES (?)";
+        String SQL="INSERT INTO cartlog(history) VALUES (?)";
         PreparedStatement preparedStatement=connection.prepareStatement(SQL);
         preparedStatement.setString(1,value);
         preparedStatement.executeUpdate();
     }
     private void insertIntoSubmitlog(String value) throws SQLException {
-        String SQL="INSERT INTO submitlog(submithistory) VALUES (?)";
+        String SQL="INSERT INTO submitlog(history) VALUES (?)";
         PreparedStatement preparedStatement=connection.prepareStatement(SQL);
         preparedStatement.setString(1,value);
         preparedStatement.executeUpdate();

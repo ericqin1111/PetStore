@@ -39,7 +39,11 @@
             <c:if test="${sessionScope.loginAccount!=null}">
                 <a href="#">Sign Out</a>
                 <img align="middle" src="images/separator.gif"/>
+<<<<<<< HEAD
                 <a href="accountUpdate">My Account</a>
+=======
+                <a href="logForm?type=viewlog&page=1">My Account</a>
+>>>>>>> 748a8a19f27a2f0c16b159d0c98dbe2726901c09
                 <img align="middle" src="images/separator.gif"/>
             </c:if>
 
